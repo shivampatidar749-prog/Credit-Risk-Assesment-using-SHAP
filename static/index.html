@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101713" />
+    <meta
+      name="description"
+      content="A clear, thoughtful workspace for assessing credit applications."
+    />
+    <title>Credence — Credit assessment</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Credence home">
+          <span class="brand-mark" aria-hidden="true">✳</span>
+          <span>credence<span class="brand-period">.</span></span>
+        </a>
+        <div class="topbar-note"><span class="status-dot"></span>Secure assessment workspace</div>
+      </header>
+
+      <main class="page-wrap">
+        <section class="welcome-row">
+          <div class="welcome-copy">
+            <p class="eyebrow">CREDIT INTELLIGENCE</p>
+            <h1>Better decisions<br class="mobile-break" /> start with a <em>clear view.</em></h1>
+            <p class="page-intro">A simple, guided way to understand a loan application’s estimated credit risk.</p>
+          </div>
+          <aside class="welcome-note">
+            <span class="note-icon" aria-hidden="true">✦</span>
+            <div><strong>Thoughtful by design</strong><span>Use the model as one input in your review.</span></div>
+          </aside>
+        </section>
+
+        <section class="overview-grid" aria-label="Assessment overview">
+          <article class="overview-card">
+            <span class="overview-icon green" aria-hidden="true">✓</span>
+            <div><strong>11</strong><span>application details</span></div>
+          </article>
+          <article class="overview-card">
+            <span class="overview-icon violet" aria-hidden="true">↗</span>
+            <div><strong>3</strong><span>simple steps</span></div>
+          </article>
+          <article class="overview-card overview-note">
+            <span class="overview-icon gold" aria-hidden="true">◎</span>
+            <div><strong>One clear signal</strong><span>Designed to support your decision</span></div>
+          </article>
+        </section>
+
+        <section class="application-card" aria-labelledby="application-heading">
+          <div class="application-heading">
+            <div>
+              <p class="section-overline">NEW APPLICATION <span class="live-badge"><span></span> READY</span></p>
+              <h2 id="application-heading">Assess a loan application</h2>
+              <p>Enter the applicant’s details below to generate a risk assessment.</p>
+            </div>
+            <div class="application-ref"><span>ASSESSMENT</span><strong>Credit risk</strong></div>
+          </div>
+
+          <div class="stepper" aria-label="Assessment progress">
+            <div class="step-item current" data-step-indicator="0" aria-current="step">
+              <span class="step-number">1</span><span class="step-copy"><strong>Applicant</strong><small>Personal details</small></span>
+            </div>
+            <span class="step-connector"></span>
+            <div class="step-item" data-step-indicator="1">
+              <span class="step-number">2</span><span class="step-copy"><strong>Loan</strong><small>Application details</small></span>
+            </div>
+            <span class="step-connector"></span>
+            <div class="step-item" data-step-indicator="2">
+              <span class="step-number">3</span><span class="step-copy"><strong>Credit history</strong><small>Final details</small></span>
+            </div>
+          </div>
+
+          <form id="assessment-form">
+            <section class="form-stage" data-step="0" aria-labelledby="applicant-title">
+              <div class="form-section-title">
+                <span class="section-icon" aria-hidden="true">01</span>
+                <div><h3 id="applicant-title">About the applicant</h3><p>Start with a few personal and employment details.</p></div>
+              </div>
+              <div class="form-grid">
+                <label class="field"><span class="field-label">Applicant age</span><span class="input-wrap"><input name="person_age" type="number" min="18" max="100" placeholder="e.g. 32" required /><span class="input-suffix">years</span></span></label>
+                <label class="field"><span class="field-label">Annual income</span><span class="input-wrap"><span class="input-prefix">$</span><input class="with-prefix" name="person_income" type="number" min="1" placeholder="e.g. 78,000" required /><span class="input-suffix">USD / year</span></span></label>
+                <label class="field"><span class="field-label">Home ownership</span><select name="person_home_ownership" required><option value="RENT">Renting</option><option value="OWN">Own home</option><option value="MORTGAGE">Mortgage</option><option value="OTHER">Other</option></select></label>
+                <label class="field"><span class="field-label">Employment length</span><span class="input-wrap"><input name="person_emp_length" type="number" min="0" max="100" step="0.5" placeholder="e.g. 6" required /><span class="input-suffix">years</span></span></label>
+              </div>
+            </section>
+
+            <section class="form-stage" data-step="1" aria-labelledby="loan-title" hidden>
+              <div class="form-section-title">
+                <span class="section-icon" aria-hidden="true">02</span>
+                <div><h3 id="loan-title">Loan details</h3><p>Tell us what the applicant is borrowing and why.</p></div>
+              </div>
+              <div class="form-grid">
+                <label class="field"><span class="field-label">Loan purpose</span><select name="loan_intent" required><option value="PERSONAL">Personal</option><option value="EDUCATION">Education</option><option value="MEDICAL">Medical</option><option value="VENTURE">Business venture</option><option value="HOMEIMPROVEMENT">Home improvement</option><option value="DEBTCONSOLIDATION">Debt consolidation</option></select></label>
+                <label class="field"><span class="field-label">Loan grade</span><select name="loan_grade" required><option value="A">Grade A</option><option value="B" selected>Grade B</option><option value="C">Grade C</option><option value="D">Grade D</option><option value="E">Grade E</option><option value="F">Grade F</option><option value="G">Grade G</option></select></label>
+                <label class="field"><span class="field-label">Requested amount</span><span class="input-wrap"><span class="input-prefix">$</span><input class="with-prefix" name="loan_amnt" type="number" min="1" placeholder="e.g. 12,000" required /><span class="input-suffix">USD</span></span></label>
+                <label class="field"><span class="field-label">Interest rate</span><span class="input-wrap"><input name="loan_int_rate" type="number" min="0" max="100" step="0.01" placeholder="e.g. 10.5" required /><span class="input-suffix">%</span></span></label>
+              </div>
+              <div class="ratio-note" id="ratio-note" aria-live="polite">
+                <span class="ratio-indicator" aria-hidden="true">✓</span>
+                <span id="ratio-copy">Add income and loan amount to see the loan-to-income estimate.</span>
+                <span class="ratio-track"><i id="ratio-fill"></i></span>
+              </div>
+            </section>
+
+            <section class="form-stage" data-step="2" aria-labelledby="history-title" hidden>
+              <div class="form-section-title">
+                <span class="section-icon" aria-hidden="true">03</span>
+                <div><h3 id="history-title">Credit history</h3><p>A little context helps complete the assessment.</p></div>
+              </div>
+              <div class="form-grid">
+                <label class="field"><span class="field-label">Previous default on file</span><select name="cb_person_default_on_file" required><option value="N">No previous default</option><option value="Y">Yes, previous default</option></select></label>
+                <label class="field"><span class="field-label">Credit history length</span><span class="input-wrap"><input name="cb_person_cred_hist_length" type="number" min="0" max="100" placeholder="e.g. 8" required /><span class="input-suffix">years</span></span></label>
+              </div>
+              <div class="privacy-note"><span class="privacy-icon" aria-hidden="true">✓</span><span><strong>Use this assessment responsibly</strong><small>The model output is decision support, not a substitute for your lending criteria or a full review.</small></span></div>
+            </section>
+
+            <div class="error-message" id="form-error" role="alert" hidden></div>
+            <div class="form-footer">
+              <span class="required-note"><span aria-hidden="true">*</span> Required fields</span>
+              <div class="form-actions">
+                <button class="back-button" id="back-button" type="button" hidden>← <span>Back</span></button>
+                <button class="primary-button" id="continue-button" type="button">Continue <span aria-hidden="true">→</span></button>
+                <button class="primary-button" id="submit-button" type="submit" hidden>Generate assessment <span aria-hidden="true">✦</span></button>
+              </div>
+            </div>
+          </form>
+
+          <section class="result-panel" id="result-panel" aria-live="polite" hidden></section>
+        </section>
+
+        <footer class="page-footer">
+          <span><span aria-hidden="true">✓</span> Your information is used to generate this assessment.</span>
+          <span>Credence Credit Intelligence <i>·</i> v1.0</span>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
