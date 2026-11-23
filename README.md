@@ -140,13 +140,13 @@ The training CSV is intentionally not listed because it is not present in the re
 
 ## Run locally
 
-The application files are inside `Credit-Risk-Assesment-using-SHAP-main/`. Use Python 3.11.9; the repository-root `.python-version` file selects this version on Render.
+The application files are inside `Credit-Risk-Assesment-using-SHAP-main/`. Use Python 3.12; the repository-root `.python-version` file selects the latest supported 3.12 patch on Render. Python 3.12 is required by the pinned XGBoost 3.4.1 dependency.
 
 ### Windows PowerShell
 
 ```powershell
 cd Credit-Risk-Assesment-using-SHAP-main
-py -3.11 -m venv .venv
+py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 python -m uvicorn main:app --reload
@@ -156,7 +156,7 @@ python -m uvicorn main:app --reload
 
 ```bash
 cd Credit-Risk-Assesment-using-SHAP-main
-python3.11 -m venv .venv
+python3.12 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
 python -m uvicorn main:app --reload
