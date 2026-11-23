@@ -121,6 +121,7 @@ The numeric values above are illustrative, not a measured prediction. `default_p
 ```text
 Credit-Risk-Assesment-using-SHAP/
 ├── README.md
+├── .python-version
 └── Credit-Risk-Assesment-using-SHAP-main/
     ├── Credit_Risk.ipynb
     ├── main.py
@@ -139,7 +140,7 @@ The training CSV is intentionally not listed because it is not present in the re
 
 ## Run locally
 
-The application files are inside `Credit-Risk-Assesment-using-SHAP-main/`. Use Python 3.11 (the deployment runtime is pinned to 3.11.9).
+The application files are inside `Credit-Risk-Assesment-using-SHAP-main/`. Use Python 3.11.9; the repository-root `.python-version` file selects this version on Render.
 
 ### Windows PowerShell
 
